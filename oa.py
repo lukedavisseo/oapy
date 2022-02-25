@@ -15,7 +15,7 @@ st.header('Welcome to oapy!')
 st.subheader('oapy is an OpenAI script that generates text at scale based on its input. Great for descriptions and definitions.')
 
 st.markdown(
-	'''Please read the [available documentation](https://beta.openai.com/docs) for more info on how OpenAI works. You should also consult the pricing page before trying this script for multiple text strings. For example, using the Davinci engine (the most powerful one) costs $0.06 per 1,000 tokens so if you were to create 160 character meta descriptions for 100 pages, the cost would be around $0.24. Feel free to use the calculator below to get an estimated price before you go wild in the AIsles!''')
+	'''Please read the [available documentation](https://beta.openai.com/docs) for more info on how OpenAI works. You should also consult the pricing page before trying this script for multiple text strings. For example, using the Davinci engine (the most powerful one) costs 0.06 (USD) per 1,000 tokens so if you were to create 160 character meta descriptions for 1000 pages, the cost would be around 2.40 (USD). Feel free to use the calculator below to get an estimated price before you go wild in the AIsles!''')
 
 # Load your API key
 openai.api_key = st.text_input('Enter API key')
