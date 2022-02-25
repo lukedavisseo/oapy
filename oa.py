@@ -26,9 +26,13 @@ token_calc = st.text_input('Enter your character limit: ')
 
 page_total = st.text_input('Enter your page total: ')
 
-token_price = Decimal(token_calc) * Decimal(page_total) / 4 / 1000 * Decimal(0.06)
+calculate = st.button('Calculate')
 
-st.write(f'Your total cost would be around ${Decimal(token_price)}')
+if calculate:
+
+	token_price = Decimal(token_calc) * Decimal(page_total) / 4 / 1000 * Decimal(0.06)
+
+	st.write(f'Your total cost would be around ${Decimal(token_price)}')
 
 max_tokens = st.number_input(
 	'Enter max token amount. 1 token is roughly 4 characters. Remember: there are associated costs so please read the pricing documentation before using this at large scale!')
