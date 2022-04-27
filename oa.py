@@ -20,13 +20,18 @@ st.markdown(
 # Load your API key
 openai.api_key = st.text_input('Enter API key')
 
-prompt_texts = st.text_area('Enter text, 1 per line')
+prompt_texts = st.text_area('Enter text, 1 prompt per line')
 
-token_calc = st.text_input('Enter your character limit: ')
+st.subheader('Now you can calculate the cost of your work, using the inputs below.')
 
-page_total = st.text_input('Enter your page total: ')
+token_calc = st.text_input('What is your character limit? For example, 160 characters works well for meta descriptions.')
 
-calculate = st.button('Calculate')
+page_total = st.text_input('How many pages are you creating text for?')
+
+max_tokens = st.number_input(
+	'Enter max token amount. 1 token is roughly 4 characters. Remember: there are associated costs so please read the pricing documentation before using this at large scale!')
+
+calculate = st.button('Calculate cost')
 
 if calculate:
 
@@ -34,10 +39,7 @@ if calculate:
 
 	st.write(f'Your total cost would be around ${Decimal(token_price)}')
 
-max_tokens = st.number_input(
-	'Enter max token amount. 1 token is roughly 4 characters. Remember: there are associated costs so please read the pricing documentation before using this at large scale!')
-
-submit = st.button('Submit')
+submit = st.button('Generate!')
 
 if submit:
 
