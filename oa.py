@@ -55,7 +55,7 @@ if submit:
 			engine="text-davinci-001",
 			temperature=0.7,
 			prompt=prompt,
-			max_tokens=max_tokens)
+			max_tokens=int(max_tokens))
 
 		desc_dict['Text'].append(response.choices[0].text)
 
