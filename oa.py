@@ -36,10 +36,8 @@ calculate = st.button('Calculate cost')
 if calculate:
 
 	token_price = Decimal(token_calc) * Decimal(page_total) / 4 / 1000 * Decimal(0.06)
-	
-	max_token_price = (Decimal(token_calc) * Decimal(page_total) / 4) * ((max_tokens / 1000) * Decimal(0.06))
 
-	st.write(f'Your total cost would be around ${Decimal(token_price)} but could rise to ${Decimal(max_token_price)} depending on your prompt.')
+	st.write(f'Your total cost would be around ${Decimal(token_price)}.')
 
 submit = st.button('Generate!')
 
