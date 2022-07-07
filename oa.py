@@ -32,7 +32,7 @@ calculate = st.button('Calculate cost')
 
 if calculate:
 
-	token_price = token_calc * page_total / 4 / 1000 * 0.06
+	token_price = int(token_calc) * int(page_total) / 4 / 1000 * 0.06
 
 	st.write(f'Your total cost would be around ${token_price:.2f}.')
 
