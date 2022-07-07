@@ -2,8 +2,6 @@ import openai
 import pandas as pd
 import streamlit as st
 
-getcontext().prec = 4
-
 desc_dict = {
 	'Question': [],
 	'Text': []
