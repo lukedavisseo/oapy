@@ -1,7 +1,6 @@
 import openai
 import pandas as pd
 import streamlit as st
-from decimal import *
 
 getcontext().prec = 4
 
@@ -35,9 +34,9 @@ calculate = st.button('Calculate cost')
 
 if calculate:
 
-	token_price = Decimal(token_calc) * Decimal(page_total) / 4 / 1000 * Decimal(0.06)
+	token_price = token_calc * page_total / 4 / 1000 * 0.06
 
-	st.write(f'Your total cost would be around ${Decimal(token_price)}.')
+	st.write(f'Your total cost would be around ${token_price:.2f}.')
 
 submit = st.button('Generate!')
 
