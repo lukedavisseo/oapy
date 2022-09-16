@@ -69,8 +69,6 @@ output_selector = st.sidebar.selectbox('What do you want your output to be? Sele
 
 tone_selector = st.sidebar.selectbox('Choose a tone for your prompt', ('Friendly', 'Professional', 'Persuasive'))
 
-model_selector = st.sidebar.selectbox('Which GPT-3 model would you like to use?', ('text-davinci-002', 'text-curie-001', 'text-babbage-001', 'text-ada-001'))
-
 temp_slider = st.sidebar.slider('Set the temperature of the completion', 0.0, 1.0, 0.7)
 
 generate = st.button('Generate!')
@@ -92,7 +90,7 @@ if generate:
 			desc_dict['Question'].append(prompt)
 
 			response = openai.Completion.create(
-				engine=model_selector,
+				engine='text-davinci-002',
 				temperature=temp_slider,
 				prompt=prompt,
 				max_tokens=max_tokens_dict[output_selector])
