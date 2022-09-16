@@ -104,7 +104,7 @@ if generate:
 	desc_csv = df.to_csv()
 
 	st.balloons()
-	
+
 	st.success('Completed!')
 
 	st.download_button(label='Download CSV', data=desc_csv, file_name='desc_csv.csv', mime='text/csv')
