@@ -88,7 +88,7 @@ if generate:
 		for prompt in prompt_list:
 
 			prompt = f'Write a {output_selector.lower()} for {prompt} {tone_selector_dict[tone_selector]}'
-			
+
 			desc_dict['Question'].append(prompt)
 
 			response = openai.Completion.create(
@@ -104,6 +104,7 @@ if generate:
 	desc_csv = df.to_csv()
 
 	st.balloons()
+	
 	st.success('Completed!')
 
 	st.download_button(label='Download CSV', data=desc_csv, file_name='desc_csv.csv', mime='text/csv')
