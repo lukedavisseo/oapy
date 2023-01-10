@@ -2,6 +2,17 @@ import openai
 import pandas as pd
 import streamlit as st
 import streamlit.components.v1 as components
+import utils as utl
+
+st.set_page_config(
+	page_icon="https://impression-static.s3.eu-west-1.amazonaws.com/logos/impression-digital-logo-square-80.png", 
+	layout="wide",
+	page_title='Oapy by Impression',
+	initial_sidebar_state="expanded"
+)
+
+st.markdown(f'<div class="header"><figure><embed type="image/svg+xml" src="https://impression-static.s3.eu-west-1.amazonaws.com/misc/oapy-logo.svg" /><figcaption><h1>Welcome to oapy!</h1></figcaption></figure><h3>oapy is an OpenAI script that generates copy at scale based on a given prompt.</h3></div>', unsafe_allow_html=True)
+
 
 desc_dict = {
 	'Question': [],
@@ -19,12 +30,6 @@ tone_selector_dict = {
 	'Professional': 'in a professional tone',
 	'Persuasive': 'in a persuasive tone'
 }
-
-st.header('Welcome to oapy!')
-
-st.subheader('oapy is an OpenAI script that generates copy at scale based on a given prompt.')
-
-st.markdown("---")
 
 with st.expander("What is oapy good for? 🤔", expanded=False):
 
@@ -106,3 +111,9 @@ if generate:
 	st.success('Completed!')
 
 	st.download_button(label='Download CSV', data=desc_csv, file_name='desc_csv.csv', mime='text/csv')
+
+
+# Loading CSS
+utl.local_css("frontend.css")
+utl.remote_css('https://fonts.googleapis.com/icon?family=Material+Icons')
+utl.remote_css('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;600;700&display=swap')
