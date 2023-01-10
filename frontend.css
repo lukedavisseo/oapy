@@ -62,10 +62,9 @@ div.block-container > div > div div[data-testid="stExpander"]{
 .stMarkdown, .stExpander, .row-widget, .stTextArea {
     width: initial !important; 
 }
-.stMarkdown *, .stExpander *, .row-widget *, .stTextArea *{
+.stMarkdown *, .stExpander *{
     width: initial !important;
 }
-
 
 .header {
     background: rgb(16, 125, 230);
