@@ -63,18 +63,24 @@ with st.expander("To do list 📝", expanded=False):
 
 st.markdown("---")
 
-# Load your API key
-openai.api_key = st.text_input('Enter your API key')
-
-prompt_texts = st.text_area('Enter your prompt, 1 per line')
-
 # Output sidebar
+prompt_mode = st.sidebar.selectbox('Set the prompt mode', ('Single Prompt', 'Multiple Prompts'))
 
 output_selector = st.sidebar.selectbox('What do you want your output to be? Select from a list of presets.', ('Meta title', 'Meta description', 'Category header copy'))
 
 tone_selector = st.sidebar.selectbox('Choose a tone for your prompt', ('Friendly', 'Professional', 'Persuasive'))
 
-temp_slider = st.sidebar.slider('Set the temperature of the completion', 0.0, 1.0, 0.7)
+temp_slider = st.sidebar.slider('Set the temperature of the completion. Higher values make the output more random,  lower values make it more focused.', 0.0, 1.0, 0.7)
+
+rep_penalty = st.sidebar.slider("Set the repetition penalty. A bigger value means more varied sentences.", 0.9, 2.0, 1.0)
+
+# Load your API key
+openai.api_key = st.text_input('Enter your API key')
+
+if prompt_mode == 'Single Prompt':
+	prompt_texts = st.text_area('Enter your prompt')
+else:
+	prompt_texts = st.text_area('Enter your prompts, 1 per line')
 
 generate = st.button('Generate!')
 
@@ -83,35 +89,29 @@ if generate:
 	with st.spinner('Classifying...'):
 
 		st.image('road-runner-coyote.gif')
-
 		lines = prompt_texts.split('\n')
-
 		prompt_list = [line for line in lines]
 
 		for prompt in prompt_list:
 
 			prompt = f'Write a {output_selector.lower()} for {prompt} {tone_selector_dict[tone_selector]}'
-
 			desc_dict['Question'].append(prompt)
 
 			response = openai.Completion.create(
 				engine='text-davinci-002',
 				temperature=temp_slider,
 				prompt=prompt,
+				frequency_penalty=rep_penalty,
 				max_tokens=max_tokens_dict[output_selector])
 
 			desc_dict['Text'].append(response.choices[0].text)
 
 	df = pd.DataFrame(desc_dict)
-
 	desc_csv = df.to_csv()
 
 	st.balloons()
-
 	st.success('Completed!')
-
 	st.download_button(label='Download CSV', data=desc_csv, file_name='desc_csv.csv', mime='text/csv')
-
 
 # Loading CSS
 utl.local_css("frontend.css")
