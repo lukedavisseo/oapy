@@ -71,7 +71,7 @@ with st.expander("Credits 🏆", expanded=False):
 
 	st.markdown(
 		"""
-		Oapy was created by [Luke Davis](https://lukealexdavis.co.uk/) at [Impression, a multi-award-winning SEO agency](https://www.impression.co.uk/) in the UK & US.
+		Oapy was created by [Luke Davis](https://lukealexdavis.co.uk/) at [Impression, a multi-award-winning SEO agency](https://www.impression.co.uk/seo/) in the UK & US.
 	    """
     )
 
