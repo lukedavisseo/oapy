@@ -33,38 +33,12 @@ intent_selector_dict = {
 	'Transactional': 'with a transactional intent'
 }
 
-with st.expander("What is Oapy and how can it be used? 🤔", expanded=False):
-
-	st.markdown(
-	"""
-	Oapy is a ChatGPT script that can generate SEO content at scale. Depending on the prompt mode you select on the left sidebar, you can create:
-	* Responses to custom prompts (using the Playground mode)
-	* Meta titles
-	* Meta description
-	* Category header copy
-
-	""")
-
-with st.expander("What are the prompt modes? 📝", expanded=False):
-
-	st.markdown(
-		"""
-		There are two prompt modes available:
-		* Playground - this runs similar to OpenAI’s Playground tool, allowing you to generate outputs based on custom prompts. This is good for varied prompt engineering that you don't need to scale.
-		* Multiple Keywords - this allows you to build a more prescriptive output based on multiple search terms. Here, you can create meta titles, meta descriptions, and category header copy by further configuring the output on the left sidebar. You can also determining your search intent and include additional instructions to enhance your prompts.
-
-	    """
-    )
-
 with st.expander("How to use oapy 🤖", expanded=False):
 
 	st.markdown(
 		"""
-		1. Set the prompt mode on the left sidebar, determining whether you want to work in Playground or Multiple Keywords mode.
-		2. Enter your API key in the field below. You can find your Secret API key when you log into your OpenAI account, under [User settings](https://beta.openai.com/account/api-keys). (Check out their [Best Practices for API Key Safety](https://help.openai.com/en/articles/5112595-best-practices-for-api-key-safety) page to learn how you can keep your API key safe.
-		3. Based on your prompt selection in step 1, write your prompt(s) or the keyword(s) you wish to target in the field provided.
-		4. Click 'Generate' and wait for Oapy to work its magic. Once completed, it will display the prompt and its output (in Playground mode) or a Download button for you to download the data as a CSV file (Multiple Keywords mode).
-	    """
+		[Please refer to our dedicated guide on how to use Oapy on the Impression website](https://www.impression.co.uk/).
+		"""
     )
 
 with st.expander("Credits 🏆", expanded=False):
