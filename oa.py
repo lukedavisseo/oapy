@@ -37,7 +37,7 @@ with st.expander("How to use oapy 🤖", expanded=False):
 
 	st.markdown(
 		"""
-		Please refer to [our dedicated guide](https://www.impression.co.uk/resources/tools/oapy/) on how to use Oapy on the Impression website.
+		Please refer to [our dedicated guide](https://www.impression.co.uk/resources/tools/oapy/) on how to use Oapy via the Impression website.
 		"""
     )
 
