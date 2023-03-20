@@ -113,8 +113,6 @@ if generate:
 				output = oapy_utils.oapy_generator('gpt-3.5-turbo', temp_slider, prompt, max_tokens_dict[output_selector][0], rep_penalty)
 				desc_dict['Text'].append(output)
 
-				st.write(f'{prompt}\n\n{output}')
-
 			oapy_utils.generate_csv_output(desc_dict)
 
 		else:
