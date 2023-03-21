@@ -26,6 +26,14 @@ max_tokens_dict = {
 	'Category header copy': [200, 'in 800 characters or less']
 }
 
+pg_max_tokens_dict = {
+	'Very short': 25,
+	'Short': 50,
+	'Medium': 100,
+	'Long': 200,
+	'Very long': 300
+}
+
 intent_selector_dict = {
 	'Commercial': 'with a commercial intent',
 	'Informational': 'with a informational intent',
@@ -59,6 +67,7 @@ openai.api_key = st.text_input('Enter your API key')
 
 if prompt_mode == 'Playground':
 	prompt_text = st.text_area('Enter your prompt(s)')
+	pg_max_tokens_length = st.sidebar.select_slider('Set the length of your output', options=['very short', 'short', 'medium', 'long', 'very long'], value='medium')
 	temp_slider = st.sidebar.slider('Set the temperature of the completion. Higher values make the output more random,  lower values make it more focused.', 0.0, 1.0, 0.7)
 	rep_penalty = st.sidebar.slider("Set the repetition penalty. A bigger value means more varied sentences.", 0.9, 2.0, 1.0)
 else:
@@ -91,7 +100,7 @@ if generate:
 
 		else:
 
-			output = oapy_utils.oapy_generator('gpt-3.5-turbo', temp_slider, prompt_text, max_tokens_dict[output_selector][0], rep_penalty)
+			output = oapy_utils.oapy_generator('gpt-3.5-turbo', temp_slider, prompt_text, pg_max_tokens_dict[pg_max_tokens_length], rep_penalty)
 
 			st.write(f'{prompt_text} {output}')
 
