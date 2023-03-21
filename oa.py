@@ -91,7 +91,7 @@ if generate:
 
 		else:
 
-			output = oapy_utils.oapy_generator('gpt-3.5-turbo', temp_slider, prompt, max_tokens_dict[output_selector][0], rep_penalty)
+			output = oapy_utils.oapy_generator('gpt-3.5-turbo', temp_slider, prompt_text, max_tokens_dict[output_selector][0], rep_penalty)
 
 			st.write(f'{prompt_text} {output}')
 
