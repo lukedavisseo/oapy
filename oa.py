@@ -67,7 +67,7 @@ openai.api_key = st.text_input('Enter your API key')
 
 if prompt_mode == 'Playground':
 	prompt_text = st.text_area('Enter your prompt(s)')
-	pg_max_tokens_length = st.sidebar.select_slider('Set the length of your output', options=['very short', 'short', 'medium', 'long', 'very long'], value='medium')
+	pg_max_tokens_length = st.sidebar.select_slider('Set the length of your output', options=['Very short', 'Short', 'Medium', 'Long', 'Very long'], value='Medium')
 	temp_slider = st.sidebar.slider('Set the temperature of the completion. Higher values make the output more random,  lower values make it more focused.', 0.0, 1.0, 0.7)
 	rep_penalty = st.sidebar.slider("Set the repetition penalty. A bigger value means more varied sentences.", 0.9, 2.0, 1.0)
 else:
