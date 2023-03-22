@@ -12,7 +12,7 @@ st.set_page_config(
 	initial_sidebar_state="expanded"
 )
 
-st.markdown(f'<div class="header"><figure><embed type="image/svg+xml" src="https://impression-static.s3.eu-west-1.amazonaws.com/misc/oapy-logo.svg" /><figcaption><h1>Welcome to oapy!</h1></figcaption></figure><h3>oapy is an OpenAI script that generates copy at scale based on a given prompt.</h3></div>', unsafe_allow_html=True)
+st.markdown(f'<div class="header"><figure><embed type="image/svg+xml" src="https://impression-static.s3.eu-west-1.amazonaws.com/misc/oapy-logo.svg" /><figcaption><h1>Welcome to oapy!</h1></figcaption></figure><h3>oapy is an GPT-4 web app that generates copy at scale based on a given prompt.</h3></div>', unsafe_allow_html=True)
 
 
 desc_dict = {
