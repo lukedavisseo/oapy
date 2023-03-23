@@ -59,6 +59,9 @@ with st.expander("Credits 🏆", expanded=False):
 
 st.markdown("---")
 
+# Model selector sidebar
+model = st.sidebar.selectbox('Choose your model', ('gpt-3.5-turbo', 'gpt-4'))
+
 # Output sidebar
 prompt_mode = st.sidebar.selectbox('Set the prompt mode', ('Playground', 'Multiple Keywords'))
 
@@ -93,14 +96,14 @@ if generate:
 
 				prompt = f'Write a {output_selector.lower()} for {prompt} {intent_selector_dict[intent_selector]}, {max_tokens_dict[output_selector][1]}. {add_instruct}'
 				desc_dict['Question'].append(prompt)
-				output = oapy_utils.oapy_generator('gpt-3.5-turbo', temp_slider, prompt, max_tokens_dict[output_selector][0], rep_penalty)
+				output = oapy_utils.oapy_generator(model, temp_slider, prompt, max_tokens_dict[output_selector][0], rep_penalty)
 				desc_dict['Text'].append(output)
 
 			oapy_utils.generate_csv_output(desc_dict)
 
 		else:
 
-			output = oapy_utils.oapy_generator('gpt-3.5-turbo', temp_slider, prompt_text, pg_max_tokens_dict[pg_max_tokens_length], rep_penalty)
+			output = oapy_utils.oapy_generator(model, temp_slider, prompt_text, pg_max_tokens_dict[pg_max_tokens_length], rep_penalty)
 
 			st.write(f'{prompt_text} {output}')
 
