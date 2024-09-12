@@ -24,6 +24,6 @@ def oapy_generator(model, temperature, prompt, tokens, frequency_penalty):
 			frequency_penalty=frequency_penalty
 		)
 
-	output = response['choices'][0]['message']['content']
+	output = response.choices[0].message.content
 
 	return output
