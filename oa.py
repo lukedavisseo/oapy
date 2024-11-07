@@ -76,7 +76,6 @@ if prompt_mode == 'Playground':
 else:
 	output_selector = st.sidebar.selectbox('What do you want your output to be? Select from a list of presets.', ('Meta title', 'Meta description', 'Category header copy'))
 	intent_selector = st.sidebar.selectbox('Choose an intent for your prompt', (intent_selector_dict.keys()))
-	pg_max_tokens_length = st.sidebar.select_slider('Set the length of your output', options=['Very short', 'Short', 'Medium', 'Long', 'Very long'], value='Medium')
 	temp_slider = st.sidebar.slider('Set the temperature of the completion. Higher values make the output more random,  lower values make it more focused.', 0.0, 1.0, 0.7)
 	rep_penalty = st.sidebar.slider("Set the repetition penalty. A bigger value means more varied sentences.", 0.9, 2.0, 1.0)
 	prompt_text = st.text_area('Enter your keywords, 1 per line')
@@ -97,7 +96,7 @@ if generate:
 
 				prompt = f'Write a {output_selector.lower()} for {prompt} {intent_selector_dict[intent_selector]}, {max_tokens_dict[output_selector][1]}. {add_instruct}'
 				desc_dict['Question'].append(prompt)
-				output = oapy_utils.oapy_generator(model, temp_slider, prompt, max_tokens_dict[output_selector][0], pg_max_tokens_dict[pg_max_tokens_length], rep_penalty)
+				output = oapy_utils.oapy_generator(model, temp_slider, prompt, max_tokens_dict[output_selector][0], rep_penalty)
 				desc_dict['Text'].append(output)
 
 			oapy_utils.generate_csv_output(desc_dict)
