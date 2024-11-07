@@ -104,7 +104,7 @@ if generate:
 
 		else:
 
-			output = oapy_utils.oapy_generator(model, temp_slider, prompt_text, pg_max_tokens_dict[pg_max_tokens_length], rep_penalty)
+			output = oapy_utils.oapy_generator(model, temp_slider, prompt_text, pg_max_tokens_length, rep_penalty)
 
 			st.write(f'{prompt_text} {output}')
 
