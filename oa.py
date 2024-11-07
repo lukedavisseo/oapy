@@ -70,7 +70,7 @@ openai.api_key = st.text_input('Enter your API key')
 
 if prompt_mode == 'Playground':
 	prompt_text = st.text_area('Enter your prompt')
-	pg_max_tokens_length = st.sidebar.slider('Maximum length', 1, 4095)
+	pg_max_tokens_length = st.sidebar.slider('Maximum token length including the prompt and the output. The exact limit varies by model. (One token ≈ 4 characters for English text)', 1, 4095)
 	temp_slider = st.sidebar.slider('Set the temperature of the completion. Higher values make the output more random,  lower values make it more focused.', 0.0, 1.0, 0.7)
 	rep_penalty = st.sidebar.slider("Set the repetition penalty. A bigger value means more varied sentences.", 0.9, 2.0, 1.0)
 else:
