@@ -97,7 +97,7 @@ if generate:
 
 				prompt = f'Write a {output_selector.lower()} for {prompt} {intent_selector_dict[intent_selector]}, {max_tokens_dict[output_selector][1]}. {add_instruct}'
 				desc_dict['Question'].append(prompt)
-				output = oapy_utils.oapy_generator(model, temp_slider, prompt, max_tokens_dict[output_selector][0], rep_penalty)
+				output = oapy_utils.oapy_generator(model, temp_slider, prompt, max_tokens_dict[output_selector][0], pg_max_tokens_dict[pg_max_tokens_length], rep_penalty)
 				desc_dict['Text'].append(output)
 
 			oapy_utils.generate_csv_output(desc_dict)
