@@ -60,7 +60,7 @@ with st.expander("Credits 🏆", expanded=False):
 st.markdown("---")
 
 # Model selector sidebar
-model = st.sidebar.selectbox('Choose your model', ('gpt-4o', 'gpt-4', 'gpt-3.5-turbo'))
+model = st.sidebar.selectbox('Choose your model', ('o3-mini', 'o1', 'chatgpt-4o-latest', 'gpt-4', 'gpt-o4-mini'))
 
 # Output sidebar
 prompt_mode = st.sidebar.selectbox('Set the prompt mode', ('Playground', 'Multiple Keywords'))
