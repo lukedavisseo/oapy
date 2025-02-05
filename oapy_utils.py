@@ -11,7 +11,7 @@ def generate_csv_output(prompt_output_dict):
 	st.download_button(label='Download CSV', data=prompt_output_csv, file_name='prompt_output.csv', mime='text/csv')
 
 def oapy_generator(model, temperature, prompt, tokens, frequency_penalty):
-	response = openai.ChatCompletion.create(
+	response = openai.chat.completions.create(
 			model=model,
 			messages=[
 				{
@@ -24,6 +24,6 @@ def oapy_generator(model, temperature, prompt, tokens, frequency_penalty):
 			frequency_penalty=frequency_penalty
 		)
 
-	output = response['choices'][0]['message']['content']
+	output = response.choices[0].message.content
 
 	return output

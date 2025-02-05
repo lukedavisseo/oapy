@@ -60,7 +60,7 @@ with st.expander("Credits 🏆", expanded=False):
 st.markdown("---")
 
 # Model selector sidebar
-model = st.sidebar.selectbox('Choose your model', ('gpt-3.5-turbo', 'gpt-4'))
+model = st.sidebar.selectbox('Choose your model', ('o3-mini', 'o1', 'chatgpt-4o-latest', 'gpt-4', 'gpt-o4-mini'))
 
 # Output sidebar
 prompt_mode = st.sidebar.selectbox('Set the prompt mode', ('Playground', 'Multiple Keywords'))
@@ -70,7 +70,7 @@ openai.api_key = st.text_input('Enter your API key')
 
 if prompt_mode == 'Playground':
 	prompt_text = st.text_area('Enter your prompt')
-	pg_max_tokens_length = st.sidebar.select_slider('Set the length of your output', options=['Very short', 'Short', 'Medium', 'Long', 'Very long'], value='Medium')
+	pg_max_tokens_length = st.sidebar.slider('Maximum token length including the prompt and the output. The exact limit varies by model. (One token ≈ 4 characters for English text)', 1, 4095)
 	temp_slider = st.sidebar.slider('Set the temperature of the completion. Higher values make the output more random,  lower values make it more focused.', 0.0, 1.0, 0.7)
 	rep_penalty = st.sidebar.slider("Set the repetition penalty. A bigger value means more varied sentences.", 0.9, 2.0, 1.0)
 else:
@@ -103,7 +103,7 @@ if generate:
 
 		else:
 
-			output = oapy_utils.oapy_generator(model, temp_slider, prompt_text, pg_max_tokens_dict[pg_max_tokens_length], rep_penalty)
+			output = oapy_utils.oapy_generator(model, temp_slider, prompt_text, pg_max_tokens_length, rep_penalty)
 
 			st.write(f'{prompt_text} {output}')
 
